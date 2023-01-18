@@ -4,16 +4,16 @@ en:
       admin: 
         one: Administrator
         other: Administrators
-      profile: 
-        one: Profile
-        other: Profiles
+      user: 
+        one: User
+        other: Users
     attributes:
       admin:
         id: Id
         email: Email
         created_at: Created in
         updated_at: Updated in
-      profile:
+      user:
         id: Id
         email: Email
         created_at: Created in
