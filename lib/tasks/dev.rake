@@ -27,6 +27,17 @@ namespace :dev do
   password_confirmation: DEFAULT_PASSWORD
   )
   end
+  
+  
+  desc "Populate Admin's model in a basic level"
+  task populate_admin: :environment do
+  Admin.create!(
+  email: 'admin@admin.com',
+  password: DEFAULT_PASSWORD,
+  password_confirmation: DEFAULT_PASSWORD
+  )
+  end
+
  
   desc "Populate User's model in a basic level"
   task populate_user: :environment do
