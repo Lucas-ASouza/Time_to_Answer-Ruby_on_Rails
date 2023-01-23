@@ -10,10 +10,12 @@ namespace :dev do
     show_spinner("Droping Database...") {%x(rails db:drop)}
     show_spinner("Creating Database...") {%x(rails db:create)}
     show_spinner("Migrating Database...") {%x(rails db:migrate)}
-    show_spinner("Populating Database...1/4") {%x(rails dev:populate_admin)}
-    show_spinner("Populating Database...2/4") {%x(rails dev:populate_extra_admin)}
-    show_spinner("Populating Database...3/4") { %x(rails dev:populate_user)}
-    show_spinner("Populatint database...4/4") { %x(rails dev:add_subjects) }
+    show_spinner("Populating Database...1/5") {%x(rails dev:populate_admin)}
+    show_spinner("Populating Database...2/5") {%x(rails dev:populate_extra_admin)}
+    show_spinner("Populating Database...3/5") { %x(rails dev:populate_user)}
+    show_spinner("Populating Database...4/5") { %x(rails dev:populate_subjects) }
+    show_spinner("Populating Database...5/5") { %x(rails dev:populate_answers_questions) }
+
 
     else
       puts "You are not in the development envrioment to run this!!"
@@ -58,6 +60,18 @@ namespace :dev do
 
   File.open(file_path, 'r').each do |line|
   Subject.create!(description: line.strip)
+  end
+ end
+
+ desc "populate Answers and Questions Model"
+ task populate_answers_questions: :environment do
+  Subject.all.each do |subject|
+    rand(5..10).times do |i|
+    Question.create!(
+    description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+    subject: subject
+    )
+    end
   end
  end
 
