@@ -26,6 +26,8 @@ gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
 gem 'faker'
+gem 'kaminari'
+gem 'kaminari-i18n'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
