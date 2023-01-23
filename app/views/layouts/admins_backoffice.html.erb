@@ -37,7 +37,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Administrator's Backoffice</a>
+               
+                <%=link_to admins_backoffice_welcome_index_path, class:"navbar-brand" do%>
+                    Administrator's Backoffice
+                <%end%>
             </div>
             <!-- /.navbar-header -->
 
@@ -105,6 +108,18 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admins_backoffice' %>
+
+        <% if notice %>
+        <script>
+                $.bootstrapGrowl('<%=notice %>', {
+                ele: 'body', // which element to append to
+                type: 'info', // (null, 'info', 'danger', 'success')
+                align: 'right', // ('left', 'right', or 'center')
+                allow_dismiss: true, // If true then will display a cross to close the popup.
+                stackup_spacing: 10 // spacing between consecutively stacked growls.
+                });
+        </script>
+        <% end %>
 </body>
 
 </html>
