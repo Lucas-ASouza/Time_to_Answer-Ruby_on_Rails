@@ -9,8 +9,9 @@ namespace :dev do
     show_spinner("Droping Database...") {%x(rails db:drop)}
     show_spinner("Creating Database...") {%x(rails db:create)}
     show_spinner("Migrating Database...") {%x(rails db:migrate)}
-    show_spinner("Populating Database...1/2") {%x(rails dev:populate_admin)}
-    show_spinner("Populating Database...2/2") { %x(rails dev:populate_user)}
+    show_spinner("Populating Database...1/3") {%x(rails dev:populate_admin)}
+    show_spinner("Populating Database...2/3") {%x(rails dev:populate_extra_admin)}
+    show_spinner("Populating Database...3/3") { %x(rails dev:populate_user)}
 
 
 
@@ -21,21 +22,23 @@ namespace :dev do
 
   desc "Populate Admin's model in a basic level"
   task populate_admin: :environment do
-  Admin.create!(
-  email: 'admin@admin.com',
-  password: DEFAULT_PASSWORD,
-  password_confirmation: DEFAULT_PASSWORD
-  )
+    Admin.create!(
+      email: 'admin@admin.com',
+      password: DEFAULT_PASSWORD,
+      password_confirmation: DEFAULT_PASSWORD
+    )
   end
   
   
-  desc "Populate Admin's model in a basic level"
-  task populate_admin: :environment do
-  Admin.create!(
-  email: 'admin@admin.com',
-  password: DEFAULT_PASSWORD,
-  password_confirmation: DEFAULT_PASSWORD
-  )
+  desc "Populate Admin's using Faker Gem"
+  task populate_extra_admin: :environment do
+    10.times do |i|
+      Admin.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD
+      )
+    end  
   end
 
  
