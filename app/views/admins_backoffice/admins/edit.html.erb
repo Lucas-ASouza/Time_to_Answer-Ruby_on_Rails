@@ -1,9 +1,10 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Editing Admin</h1>
+        <h1 class="page-header">Editando</h1>
     </div>
     <!-- /.col-lg-12 -->
-</div>    
+</div>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -13,27 +14,25 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <%= form_with(model: [ :admins_backoffice, @admin ]) do | form |%>
+                       <%= form_with(model: [ :admins_backoffice, @admin ], local: true) do |form| %>
                         
                             <div class="form-group">
                                 <%= form.label :email %>
-                                <%= form.text_field :email, class:"form-control "%>
-                        
+                                <%= form.text_field :email, class:"form-control", placeholder:"Email do administrador"  %>
                             </div>
                             
                             <div class="form-group">
                                 <%= form.label :password %>
-                                <%= form.text_field :password, class:"form-control "%>
+                                <%= form.text_field :password, class:"form-control", placeholder:"Email do administrador"  %>
                             </div>
 
                             <div class="form-group">
                                 <%= form.label :password_confirmation %>
-                                <%= form.text_field :password_confirmation, class:"form-control" %>
+                                <%= form.text_field :password_confirmation, class:"form-control", placeholder:"Email do administrador"  %>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Confirm</button>
-
-                        <% end%>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                        <% end %>
                     </div>
                     <!-- /.col-lg-6 (nested) -->
                 </div>
