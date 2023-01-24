@@ -28,6 +28,7 @@ gem 'tty-spinner'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'cocoon'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
