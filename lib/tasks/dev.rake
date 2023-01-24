@@ -67,10 +67,10 @@ namespace :dev do
  task populate_answers_questions: :environment do
   Subject.all.each do |subject|
     rand(5..10).times do |i|
-    Question.create!(
-    description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-    subject: subject
-    )
+      Question.create!(
+      description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+      subject: subject
+      )
     end
   end
  end
