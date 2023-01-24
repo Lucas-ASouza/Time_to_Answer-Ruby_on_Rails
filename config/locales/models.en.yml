@@ -1,20 +1,40 @@
 en:
   activerecord:
     models:
-      admin: 
+      admin:
         one: Administrator
         other: Administrators
-      user: 
+      user:
         one: User
         other: Users
+      subject:
+        one: Subject
+        other: Subjects
+      question:
+        one: Question
+        other: Questions
     attributes:
       admin:
-        id: Id
+        id: ID
         email: Email
+        password: Password
+        password_confirmation: Password confirmation
         created_at: Created in
         updated_at: Updated in
       user:
-        id: Id
+        id: ID
         email: Email
         created_at: Created in
-        updated_at: Updated in        
+        updated_at: Updated in
+      subject:
+        id: ID
+        description: Description
+        created_at: Created in
+        updated_at: Updated in
+      question:
+        id: ID
+        description: Description
+        subject: Subject
+        subject_id: Subject
+        created_at: Created in
+        updated_at: Updated in  
