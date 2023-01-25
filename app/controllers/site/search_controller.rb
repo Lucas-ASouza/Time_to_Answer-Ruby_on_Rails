@@ -12,9 +12,11 @@ class Site::SearchController < SiteController
         #@questions = Question.search(params[:page], params[:term])
         #this will return ocorrunces that has the :term value anywhere 
 
-        #this is a Scope, not an method
-        def questions
-            @questions = Question._search_(params[:page], params[:term])
-        end
     end
-end 
+
+    #this is a Scope, not an method
+    def questions
+        @questions = Question._search_(params[:page], params[:term])
+    end
+    
+end
