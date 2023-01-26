@@ -15,6 +15,7 @@ namespace :dev do
     show_spinner("Populating Database...3/5") { %x(rails dev:populate_user)}
     show_spinner("Populating Database...4/5") { %x(rails dev:populate_subjects) }
     show_spinner("Populating Database...5/5") { %x(rails dev:populate_answers_questions) }
+    show_spinner("Updanting number of questions per Subject...") { %x(rails dev:count_questions_by_subject) }
 
 
     else
@@ -85,6 +86,14 @@ namespace :dev do
     end
   end
 end 
+
+  desc "Recalculates the number of Questions in each Subjects"
+  task count_questions_by_subject: :environment do
+    Subject.all.each do |subject|
+      Subject.reset_counters(subject.id, :questions)
+    
+      end
+    end
 
   private
   def show_spinner(msg_start)
