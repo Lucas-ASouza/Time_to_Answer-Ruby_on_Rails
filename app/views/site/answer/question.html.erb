@@ -1,1 +1,11 @@
-<h1>The answer's ID is:<%= params[:answer]%> </h1>
+
+<h1>The answer's ID is:<%= params[:answer_id]%> </h1>
+
+<%if @answer.correct %>
+<h1><%= @answer.correct %></h1>
+
+<% else %>
+<h1>Right Answer</h1>
+
+
+<% end %>
