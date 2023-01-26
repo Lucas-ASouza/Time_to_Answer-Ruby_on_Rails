@@ -1,11 +1,5 @@
-
-<h1>The answer's ID is:<%= params[:answer_id]%> </h1>
-
-<%if @answer.correct %>
-<h1><%= @answer.correct %></h1>
-
+<% if @answer.correct %>
+  <h1 style="color: green;">Parabéns você ACERTOU! \o/</h1>
 <% else %>
-<h1>Right Answer</h1>
-
-
+  <h1 style="color: red;">Infelimente você ERROU! :(</h1>
 <% end %>
