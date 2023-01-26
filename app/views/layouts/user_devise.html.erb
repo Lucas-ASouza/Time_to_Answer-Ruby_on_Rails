@@ -21,10 +21,12 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'user_devise' %>
 
-    <% if flash %>
-        <% flash.each do |key, value| %>
+
+
+    <% unless resource.errors.empty? %> 
+        <% resource.errors.full_messages.each do |msg| %>
           <%= javascript_tag do %>
-              $.bootstrapGrowl('<%= value %>', {
+              $.bootstrapGrowl('<%= msg %>', {
               type: 'danger', // (null, 'info', 'danger', 'success')
               align: 'right', // ('left', 'right', or 'center')
               allow_dismiss: true, // If true then will display a cross to close the popup.
