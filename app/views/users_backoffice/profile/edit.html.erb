@@ -9,29 +9,32 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <br>
+
+      <%= form_with(url: users_backoffice_profile_path, model: @user, local: true) do |form| %>
         <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
+
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-            </div>
+              <%= form.label :email, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <%= form.text_field :email, class:"form-control", placeholder:"Email"  %>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-            </div>
+              <%= form.label :name, class:"control-label col-md-3 col-sm-3 col-xs-12" %>
+              <%= form.text_field :name, class:"form-control", placeholder:"Name"  %>
           </div>
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-            </div>
+              <%= form.label :last_name %>
+              <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name"  %>
           </div>
+          <div class="form-group">
+            <%= form.label :password %>
+            <%= form.password_field :password, class:"form-control", placeholder:"Password"  %>
+          </div>
+          <div class="form-group">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password, class:"form-control", placeholder:"Password Confirmation"  %>
+          </div>
+
           
           
           <div class="ln_solid"></div>
@@ -41,7 +44,7 @@
             </div>
           </div>
 
-        </form>
+       <% end %>
       </div>
     </div>
   </div>
