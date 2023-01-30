@@ -7,5 +7,6 @@
 //= require fastclick/lib/fastclick.js
 //= require nprogress/nprogress
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+//= require jquery-ui/ui/widgets/datepicker
 //= require custom   
 
